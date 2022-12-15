@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "888660416113",
+    "project_id": "adf-filmes",
+    "storage_bucket": "adf-filmes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888660416113:android:d51b4ffdd6cccda2ecadd0",
+        "android_client_info": {
+          "package_name": "br.com.etflutter.adf_filmes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888660416113-p0jglh4knmmcf6e5tqp4qfjgmjls6epe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.etflutter.adf_filmes",
+            "certificate_hash": "e6be7758c2ec5874bdd56b0054e8b26de5e6d3b4"
+          }
+        },
+        {
+          "client_id": "888660416113-e7046t2pg6vgkgrcid664gq42lhg2d3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYZJXQWQvnNDoyUJcioNH3JdfKPSibkbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888660416113-e7046t2pg6vgkgrcid664gq42lhg2d3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
