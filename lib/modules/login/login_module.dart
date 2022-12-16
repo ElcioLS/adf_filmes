@@ -1,4 +1,5 @@
-import 'package:adf_filmes/app/modules/module.dart';
+import 'package:adf_filmes/application/modules/module.dart';
+import 'package:adf_filmes/modules/login/login_bindings.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import 'login_page.dart';
@@ -9,6 +10,7 @@ class LoginModule implements Module {
     GetPage(
       name: '/login',
       page: () => const LoginPage(),
+      binding: LoginBindings(),
     )
   ];
 }

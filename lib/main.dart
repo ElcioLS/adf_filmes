@@ -1,3 +1,4 @@
+import 'package:adf_filmes/application/bindings/application_bindings.dart';
 import 'package:adf_filmes/modules/login/login_module.dart';
 import 'package:adf_filmes/modules/splash/splash_module.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      initialBinding: ApplicationBindings(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
