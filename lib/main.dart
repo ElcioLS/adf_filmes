@@ -13,11 +13,12 @@ Future<void> main() async {
 
   await Firebase.initializeApp();
   // RemoteConfig.instance.fetchAndActivate(); // //Na Aula estava assim porém eu preferi deixar como na doc
-  final remoteConfig = FirebaseRemoteConfig.instance;
-  await remoteConfig.setConfigSettings(RemoteConfigSettings(
-    fetchTimeout: const Duration(minutes: 1),
-    minimumFetchInterval: const Duration(hours: 1),
-  ));
+  FirebaseRemoteConfig.instance.fetchAndActivate();
+  // final remoteConfig = FirebaseRemoteConfig.instance;
+  // await remoteConfig.setConfigSettings(RemoteConfigSettings(
+  //   fetchTimeout: const Duration(minutes: 1),
+  //   minimumFetchInterval: const Duration(hours: 1),
+  // ));
   runApp(const MyApp());
 }
 
