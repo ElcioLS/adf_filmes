@@ -1,5 +1,5 @@
 import 'package:adf_filmes/application/ui/loader/loader_mixin.dart';
-import 'package:adf_filmes/application/ui/loader/messages/messages_mixin.dart';
+import 'package:adf_filmes/application/ui/messages/messages_mixin.dart';
 import 'package:get/get.dart';
 
 import '../../services/login/login_service.dart';
