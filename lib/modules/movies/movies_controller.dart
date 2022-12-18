@@ -77,21 +77,19 @@ class MoviesController extends GetxController with MessagesMixin {
   }
 
   void filterMoviesByGenre(GenreModel? genreModel) {
-    var genreFilter = genreModel;
-
-    if (genreFilter?.id == genreSelected.value?.id) {
-      genreFilter = null;
+    if (genreModel?.id == genreSelected.value?.id) {
+      genreModel = null;
     }
 
-    genreSelected.value = genreFilter;
+    genreSelected.value = genreModel;
 
-    if (genreFilter != null) {
+    if (genreModel != null) {
       var newPopularMovies = _popularMoviesOriginal.where((movie) {
-        return movie.genres.contains(genreFilter?.id);
+        return movie.genres.contains(genreModel?.id);
       });
 
       var newTopRatedMovies = _topRatedMoviesOriginal.where((movie) {
-        return movie.genres.contains(genreFilter?.id);
+        return movie.genres.contains(genreModel?.id);
       });
 
       popularMovies.assignAll(newPopularMovies);
@@ -102,3 +100,33 @@ class MoviesController extends GetxController with MessagesMixin {
     }
   }
 }
+
+
+// Retirando atribuição variável genreFilter e deixando genreModel
+
+//   void filterMoviesByGenre(GenreModel? genreModel) {
+//     var genreFilter = genreModel;
+
+//     if (genreFilter?.id == genreSelected.value?.id) {
+//       genreFilter = null;
+//     }
+
+//     genreSelected.value = genreFilter;
+
+//     if (genreFilter != null) {
+//       var newPopularMovies = _popularMoviesOriginal.where((movie) {
+//         return movie.genres.contains(genreFilter?.id);
+//       });
+
+//       var newTopRatedMovies = _topRatedMoviesOriginal.where((movie) {
+//         return movie.genres.contains(genreFilter?.id);
+//       });
+
+//       popularMovies.assignAll(newPopularMovies);
+//       topRatedMovies.assignAll(newTopRatedMovies);
+//     } else {
+//       popularMovies.assignAll(_popularMoviesOriginal);
+//       topRatedMovies.assignAll(_topRatedMoviesOriginal);
+//     }
+//   }
+// }
