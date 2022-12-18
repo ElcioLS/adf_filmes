@@ -1,8 +1,15 @@
 import 'package:adf_filmes/application/ui/filmes_app_icons_icons.dart';
+import 'package:adf_filmes/models/movie_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({Key? key}) : super(key: key);
+  final dateFormat = DateFormat('MM/y');
+  final MovieModel movie;
+  MovieCard({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,8 @@ class MovieCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     clipBehavior: Clip.antiAlias,
                     child: Image.network(
-                      'https://upload.wikimedia.org/wikipedia/pt/thumb/6/63/Joker_%282019%29.jpg/250px-Joker_%282019%29.jpg',
+                      // 'https://upload.wikimedia.org/wikipedia/pt/thumb/6/63/Joker_%282019%29.jpg/250px-Joker_%282019%29.jpg',
+                      movie.posterPath,
                       width: 148,
                       height: 184,
                       fit: BoxFit.cover,
@@ -32,18 +40,20 @@ class MovieCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Coringa',
-                  style: TextStyle(
+                Text(
+                  // 'Coringa',
+                  movie.title,
+                  style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
-                const Text(
-                  '2019',
-                  style: TextStyle(
+                Text(
+                  // '2019',
+                  dateFormat.format(DateTime.parse(movie.releaseDate)),
+                  style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w300,
                   ),
