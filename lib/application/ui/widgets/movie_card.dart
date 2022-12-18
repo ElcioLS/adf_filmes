@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class MovieCard extends StatelessWidget {
-  final dateFormat = DateFormat('MM/y');
+  final dateFormat = DateFormat('dd/MM/y');
   final MovieModel movie;
   MovieCard({
     Key? key,
