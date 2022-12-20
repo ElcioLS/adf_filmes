@@ -32,6 +32,14 @@ class MovieDetailContentTitle extends StatelessWidget {
             starColor: context.themeOrange,
             starSize: 14,
           ),
+          const SizedBox(height: 10),
+          Text(
+            movie?.genres.map((e) => e.name).join(', ') ?? '',
+            style: TextStyle(
+              fontSize: 11,
+              color: context.themeGrey,
+            ),
+          ),
         ],
       ),
     );
