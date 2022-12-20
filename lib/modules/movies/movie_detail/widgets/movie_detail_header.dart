@@ -1,10 +1,7 @@
 import 'package:adf_filmes/models/movie_detail_model.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../movie_detail_controller.dart';
-
-class MovieDetailHeader extends GetView<MovieDetailController> {
+class MovieDetailHeader extends StatelessWidget {
   final MovieDetailModel? movie;
 
   const MovieDetailHeader({Key? key, required this.movie}) : super(key: key);
