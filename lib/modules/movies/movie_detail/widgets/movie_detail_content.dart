@@ -18,6 +18,7 @@ class MovieDetailContent extends GetView<MovieDetailController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MovieDetailContentTitle(movie: movie),
+        MovieDetailContent(movie: movie),
       ],
     );
   }
