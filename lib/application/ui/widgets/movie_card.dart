@@ -7,9 +7,11 @@ import 'package:intl/intl.dart';
 class MovieCard extends StatelessWidget {
   final dateFormat = DateFormat('dd/MM/y');
   final MovieModel movie;
+  final VoidCallback favoriteCallback;
   MovieCard({
     Key? key,
     required this.movie,
+    required this.favoriteCallback,
   }) : super(key: key);
 
   @override
@@ -37,7 +39,8 @@ class MovieCard extends StatelessWidget {
                       clipBehavior: Clip.antiAlias,
                       child: Image.network(
                         // 'https://upload.wikimedia.org/wikipedia/pt/thumb/6/63/Joker_%282019%29.jpg/250px-Joker_%282019%29.jpg',
-                        movie.posterPath,
+                        // movie.posterPath, // // Era assim até 1:35h da aula 6 porém daria errado
+                        'https://image.tmdb.org/t/p/w500${movie.posterPath}',
                         width: 148,
                         height: 184,
                         fit: BoxFit.cover,
@@ -76,7 +79,7 @@ class MovieCard extends StatelessWidget {
                 child: SizedBox(
                   height: 30,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: favoriteCallback,
                     iconSize: 13,
                     icon: const Icon(
                       FilmesAppIcons.heart_empty,
