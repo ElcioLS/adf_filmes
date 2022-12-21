@@ -33,10 +33,10 @@ class MovieDetailModel {
       'stars': stars,
       'genres': genres.map((x) => x.toMap()).toList(),
       'urlImages': urlImages,
-      'releaseDate': releaseDate.millisecondsSinceEpoch,
+      'release_date': releaseDate.millisecondsSinceEpoch,
       'overview': overview,
-      'productionCompanies': productionCompanies,
-      'originalLanguage': originalLanguage,
+      'production_companies': productionCompanies,
+      'original_language': originalLanguage,
       'cast': cast.map((x) => x.toMap()).toList(),
     };
   }

@@ -100,4 +100,19 @@ class MoviesRepositoryImpl implements MoviesRepository {
       rethrow;
     }
   }
+
+  @override
+  Future<List<MovieModel>> getFavoritiesMovies(String userId) async {
+    var favoritiesMovies = await FirebaseFirestore.instance
+        .collection('favorities')
+        .doc(userId)
+        .collection('movies')
+        .get();
+
+    final listFavorities = <MovieModel>[];
+    for (var movie in favoritiesMovies.docs) {
+      listFavorities.add(MovieModel.fromMap(movie.data()));
+    }
+    return listFavorities;
+  }
 }

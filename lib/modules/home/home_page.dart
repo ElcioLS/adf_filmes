@@ -1,5 +1,6 @@
 import 'package:adf_filmes/application/ui/filmes_app_icons_icons.dart';
 import 'package:adf_filmes/application/ui/theme_extensios.dart';
+import 'package:adf_filmes/modules/favorites/favorites_bindings.dart';
 import 'package:adf_filmes/modules/movies/movies_bindings.dart';
 import 'package:adf_filmes/modules/movies/movies_page.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,7 @@ class HomePage extends GetView<HomeController> {
             return GetPageRoute(
               settings: settings,
               page: () => const FavoritesPage(),
+              binding: FavoritesBindings(),
             );
           }
           return null;

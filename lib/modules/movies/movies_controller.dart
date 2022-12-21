@@ -54,8 +54,25 @@ class MoviesController extends GetxController with MessagesMixin {
 
   Future<void> getMovies() async {
     try {
-      final popularMoviesData = await _moviesService.getPopularMovies();
-      final topRatedMoviesData = await _moviesService.getTopRated();
+      var popularMoviesData = await _moviesService.getPopularMovies();
+      var topRatedMoviesData = await _moviesService.getTopRated();
+      final favorites = await getFavorites();
+
+      popularMoviesData = popularMoviesData.map((m) {
+        if (favorites.containsKey(m.id)) {
+          return m.copyWith(favorite: true);
+        } else {
+          return m.copyWith(favorite: false);
+        }
+      }).toList();
+
+      topRatedMoviesData = topRatedMoviesData.map((m) {
+        if (favorites.containsKey(m.id)) {
+          return m.copyWith(favorite: true);
+        } else {
+          return m.copyWith(favorite: false);
+        }
+      }).toList();
 
       popularMovies.assignAll(popularMoviesData);
       _popularMoviesOriginal = popularMoviesData;
@@ -120,9 +137,19 @@ class MoviesController extends GetxController with MessagesMixin {
       await getMovies();
     }
   }
+
+  Future<Map<int, MovieModel>> getFavorites() async {
+    var user = _authService.user;
+    if (user != null) {
+      final favorites = await _moviesService.getFavoritiesMovies(user.uid);
+
+      return <int, MovieModel>{
+        for (var fav in favorites) fav.id: fav,
+      };
+    }
+    return {};
+  }
 }
-
-
 // Retirando atribuição variável genreFilter e deixando genreModel
 
 //   void filterMoviesByGenre(GenreModel? genreModel) {
